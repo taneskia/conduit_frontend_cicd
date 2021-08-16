@@ -1,0 +1,9 @@
+name: Create and publish Docker images
+
+on:
+  push:
+    branches: ['main']
+
+env:
+  REGISTRY: ghcr.io
+  
