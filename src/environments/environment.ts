@@ -5,6 +5,5 @@
 
 export const environment = {
   production: false,
-  // CHANGE THIS TO REFERENCE KUBERNETES GIVEN NAME OF BACKEND
-  api_url: `http://${process.env.BACKEND_URL}:80/api`
+  api_url: `http://localhost:8080/api`
 };
