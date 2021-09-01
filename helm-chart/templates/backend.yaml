@@ -15,8 +15,8 @@ spec:
         {{- include "helm-chart.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-      - name: backend
-        image: andrejtaneski/conduit_backend:main
+      - name: {{ .Values.backend.name }}
+        image: {{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}
         env:
           - name: USER_NAME
             value: user
@@ -28,8 +28,8 @@ spec:
             value: test-db
           - name: PORT
             value: "8080"
-        imagePullPolicy: Always
+        imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
         ports:
         - name: http-backend
-          containerPort: 8080
+          containerPort: {{ .Values.backend.image.port  }}
           protocol: TCP
